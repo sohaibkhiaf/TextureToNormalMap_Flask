@@ -1,34 +1,22 @@
-## Commands you may use 
+# Texture → Normal Map Generator
 
-# Dev
-docker build --no-cache -t tnmp_converter .   
+An AI-powered web application that generates **realistic normal maps from texture images** using a trained **Pix2Pix-style U-Net generator** and **PyTorch**.
 
-docker run -d --name tnmp_converter -p 8080:80 tnmp_converter
+The application provides a simple Flask web interface where users can upload a texture, generate its corresponding normal map, preview the result, download it, and browse previously generated maps.
 
-docker run -v ./checkpoints:/var/www/tnmp_converter/checkpoints -d --name tnmp_converter -p 8080:80 tnmp_converter
+---
 
-docker tag tnmp_converter:latest sohaibkhiaf/tnmp_converter:latest
+## ✨ Features
 
-docker exec -it tnmp_converter /bin/bash
-
-# Prod
-docker run -v /var/www/tnmp_converter/checkpoints:/var/www/tnmp_converter/checkpoints -d -p 80:80 sohaibkhiaf/tnmp_converter:latest
-
-docker exec -it 30c0d71af82d  /bin/bash
-
-# Dev/ Ci
-pip install ruff
-
-ruff check .
-
-ruff check . --fix
-
-ruff format --check .
-
-ruff format .
-
-
-
-
-
+* 🖼️ Upload texture images
+* 🤖 Generate normal maps using a trained PyTorch model
+* 🧠 Pix2Pix-style U-Net Generator architecture
+* ⚡ Automatic GPU/CPU detection
+* 💾 Save uploaded textures and generated normal maps
+* 🗄️ Store generation history using SQLite
+* 🆔 Generate a unique UUID for every generation
+* 📥 Download generated normal maps
+* 🖼️ Gallery showing previous texture → normal map generations
+* 📱 Responsive web interface
+* 🔒 Secure uploaded filenames using `secure_filename`
 
